@@ -1,0 +1,85 @@
+<body class="bg-light p-2">
+    <div class="container mt-3" id="bienvenida">
+        <div class="p-3 d-flex justify-content-between" style="background-color: rgb(156, 221, 159);">
+
+            <h1 id="usuario" style="color: green">Bienvenido {{{userMail}}} </h1>
+            <a class="btn btn-warning d-flex p-1 align-items-center" href='/logout'>Desloguearse</a>
+        </div>
+    </div>
+    <div class="container w-50 pb-3 mb-2 bg-light">
+        <h2 class="text-center">Ingrese producto</h2>
+        <form onsubmit="return addProduct(this)" style="text-align: center;">
+            <div class="card border-primary m-3 p-3">
+                <div style="margin-bottom:1em;">
+                    <label style="display: block;">Ingresar nombre</label>
+                    <input style="display: block; margin: auto;" name="title" type="text" id="nombre-producto">
+                </div>
+                <div style="margin-bottom:1em;">
+                    <label style="display: block;">Ingresar precio</label>
+                    <input style="display: block; margin: auto;" name="price" type="number" id="precio-producto">
+                </div>
+                <div style="margin-bottom:1em;">
+                    <label style="display: block;">Ingresar url imagen</label>
+                    <input style="display: block; margin: auto;" name="thumbnail" type="text" id="imagen-producto">
+                </div>
+                <button class="m-auto" type="submit" value="send">Cargar</button>
+            </div>            
+        </form>
+    </div>
+    <div class="container w-50 pb-3 mb-2 bg-light">
+        <h2 class="danger text-center">Lista productos</h2>
+        <div">
+                <div class="row w-100 text-center bg-dark text-light m-0"">
+                    <p class="col-4">Nombre</p>
+                    <p class="col-4">Precio</p>
+                    <p class="col-4">Imagen</p>
+                </div>
+            <div id="misProductos" class="w-100 bg-dark"></div>
+        </div>
+    </div>
+    <form id="Chat" onsubmit="return SendMesage();" class="border border-primary p-3 mb-3 rounded jumbotron">
+        <h2 style="color: blue;">Chat</h2>
+        <h3>Autor</h3>
+        <div class="mb-3 col-5">
+            <input type="email" id="mail" name="mail" class="form-control" placeholder="Tu email" />
+        </div>
+        <div class="mb-3 col-5">
+            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="nombre" />
+        </div>
+        <div class="mb-3 col-5">
+            <input type="text" id="apellido" name="apellido" class="form-control" placeholder="apellido" />
+        </div>
+        <div class="mb-3 col-2">
+            <input type="text" id="edad" name="edad" class="form-control" placeholder="edad" />
+        </div>
+
+        <div class="mb-3 col-4">
+            <input type="text" id="alias" name="alias" class="form-control" placeholder="alias" />
+        </div>
+        <div class="mb-3 col-5">
+            <input type="text" id="avatar" name="avatar" class="form-control" placeholder="avatar" />
+        </div>
+
+        <h3>Conversacion:</h3>
+        <div class="mb-3">
+            <div id="tableMessages"></div>
+        </div>
+
+        <h3>Mensaje:</h3>
+        <div class="row g-3 mb-3">
+            <div class="col-10">
+                <input type="text" id="mensaje" name="mensaje" class="form-control" />
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+        <div class="mb-3">
+
+        </div>
+    </form>     
+
+    <script src="index.js"></script>
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+    
+</body>
